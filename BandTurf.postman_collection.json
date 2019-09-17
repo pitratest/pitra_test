@@ -1,0 +1,3150 @@
+{
+	"info": {
+		"_postman_id": "19ed3a33-ddf5-483b-acbf-3891a3067efb",
+		"name": "BandTurf",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LOGIN",
+			"item": [
+				{
+					"name": "Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "458f3014-6f4e-430f-b5f2-8754c138c11e",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.token).not.to.eql(\"\");",
+									"    pm.environment.set(\"token\",jsonData.token);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "If-None-Match",
+								"value": "W/\"18f-i2QadhZYVMdT0auEqyIg2yZzzh4\""
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/login",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMDgxNjMsImV4cCI6MTU2NTAwOTA2MywiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.rhmuThVRqz6MWfci3i5PzQyrt0FQ9qQvsDukW-nqnjg",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/app/token",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"app",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "66b03bba-f985-4b16-8191-2e19ad209d09",
+								"exec": [
+									"",
+									"pm.test(\"Login\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.userToken).not.to.be.null;",
+									"    pm.environment.set(\"userToken\",jsonData.userToken);",
+									"     pm.expect(jsonData.userId).not.to.be.null;",
+									"    pm.environment.set(\"userId\",jsonData.userId);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMDgzNzUsImV4cCI6MTU2NTAwOTI3NSwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.OcojL53abtUd11jXsEmSt4i79luNd2fb2H-opzcFf34",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/login"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"{{username}}\",\n\t\"password\":\"{{password}}\"\n\t\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/account/Account/Login",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"account",
+								"Account",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProfile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "19b4866e-d1a0-4490-8a02-9818761db07a",
+								"exec": [
+									"",
+									"pm.test(\"Get username\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"username\",jsonData.userProfile.email);",
+									"",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMDgzNzUsImV4cCI6MTU2NTAwOTI3NSwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.OcojL53abtUd11jXsEmSt4i79luNd2fb2H-opzcFf34"
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/login"
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\":\"{{userId}}\"\n\t\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/account/UserProfile/GetProfile",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"account",
+								"UserProfile",
+								"GetProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"allDevicesLogout\": true\r\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-account.azurewebsites.net/Account/Logout",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-account",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"Account",
+								"Logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "JOBS",
+			"item": [
+				{
+					"name": "Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "458f3014-6f4e-430f-b5f2-8754c138c11e",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.token).not.to.eql(\"\");",
+									"    pm.environment.set(\"token\",jsonData.token);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "If-None-Match",
+								"value": "W/\"18f-i2QadhZYVMdT0auEqyIg2yZzzh4\""
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/login",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMDgxNjMsImV4cCI6MTU2NTAwOTA2MywiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.rhmuThVRqz6MWfci3i5PzQyrt0FQ9qQvsDukW-nqnjg",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/app/token",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"app",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "66b03bba-f985-4b16-8191-2e19ad209d09",
+								"exec": [
+									"",
+									"pm.test(\"Login\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.userToken).not.to.be.null;",
+									"    pm.environment.set(\"userToken\",jsonData.userToken);",
+									"     pm.expect(jsonData.userId).not.to.be.null;",
+									"    pm.environment.set(\"userId\",jsonData.userId);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMDgzNzUsImV4cCI6MTU2NTAwOTI3NSwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.OcojL53abtUd11jXsEmSt4i79luNd2fb2H-opzcFf34",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/login",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"{{username}}\",\n\t\"password\":\"{{password}}\"\n\t\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/account/Account/Login",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"account",
+								"Account",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProfile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "19b4866e-d1a0-4490-8a02-9818761db07a",
+								"exec": [
+									"",
+									"pm.test(\"Get username\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.environment.set(\"username\",jsonData.userProfile.email);",
+									"",
+									"});",
+									"",
+									"",
+									"//THE IDEA HERE, is to get coordinates and location name for next request for creating job!!!!!",
+									"// CIty and State is taken from below array , randomly and gmap api returns latitude and longitude for that particulary city and state",
+									"// this is my private key for maps APPID=cb0aeb43b8923a51cfbda7edaf4ac7c6",
+									"",
+									"let arrayOfCitiesAndCountries =[",
+									"    {city:\"Belgrade\",state:\"Serbia\"},",
+									"    {city:\"Budapest\",state:\"Hungary\"},",
+									"    {city:\"London\",state:\"United Kingdom\"},",
+									"    {city:\"Munich\",state:\"Germany\"},",
+									"    {city:\"Zagreb\",state:\"Croatia\"},",
+									"    {city:\"New York\",state:\"New York\"}",
+									"    ];",
+									"",
+									"",
+									"let item = arrayOfCitiesAndCountries[Math.floor(Math.random()*arrayOfCitiesAndCountries.length)];",
+									"",
+									"pm.sendRequest(`https://api.openweathermap.org/data/2.5/weather?q=${item.city},${item.state}&APPID=cb0aeb43b8923a51cfbda7edaf4ac7c6&units=metric`, function (err, res) {",
+									"    if (err) {",
+									"        console.log(err);",
+									"    } else {",
+									"        pm.environment.set(\"lat\",res.json().coord.lat);",
+									"        pm.environment.set(\"long\",res.json().coord.lon);",
+									"        pm.environment.set(\"city\",item.city);",
+									"        ",
+									"    }",
+									"});",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9bd47729-e479-4491-9760-a15c6f8122c7",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMDgzNzUsImV4cCI6MTU2NTAwOTI3NSwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.OcojL53abtUd11jXsEmSt4i79luNd2fb2H-opzcFf34"
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/login"
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\":\"{{userId}}\"\n\t\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/account/UserProfile/GetProfile",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"account",
+								"UserProfile",
+								"GetProfile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateJobPost",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "502b3675-6499-47f4-b8f0-00a29a387c5f",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.responseMessage).to.be.eql(\"OK\")",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwOTkxNzgsImV4cCI6MTU2NTEwMDA3OCwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.suyArToFQcYEwsowhU53uLRyVgrhBJrhJHahgGU3fQ4",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data;"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/jobs/create",
+								"disabled": true
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "PostType",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "UserId",
+									"value": "{{userId}}",
+									"type": "text"
+								},
+								{
+									"key": "Genres",
+									"value": "{{genre}}",
+									"type": "text"
+								},
+								{
+									"key": "Instruments",
+									"value": "{{instruments}}",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "{{title}}",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "Attention! This is automated test , don't be fooled!",
+									"type": "text"
+								},
+								{
+									"key": "LocationName",
+									"value": "{{city}}",
+									"type": "text"
+								},
+								{
+									"key": "Latitude",
+									"value": "{{lat}}",
+									"type": "text"
+								},
+								{
+									"key": "Longitude",
+									"value": "{{long}}",
+									"type": "text"
+								},
+								{
+									"key": "IsPayed",
+									"value": "true",
+									"type": "text"
+								},
+								{
+									"key": "Images",
+									"type": "file",
+									"src": "/C:/Users/dragan.lintner/Documents/Projects Visual Code Studio/rasperry_pi/pi_project/src/assets/automan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/Job/CreateJobPost",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"Job",
+								"CreateJobPost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllJobs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c3c00e96-73ca-4d7f-8979-b2f2dac23362",
+								"exec": [
+									"pm.test(\"Get All posts\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    let allJobPostsByUser =[];",
+									"    ",
+									"    ",
+									"    for(var i=0; i<jsonData.jobPosts.length;i++){",
+									"        if(jsonData.jobPosts[i].accountData.email === pm.environment.get(\"username\")){",
+									"            allJobPostsByUser.push(jsonData.jobPosts[i].id);",
+									"        }",
+									"       ",
+									"    }",
+									"     pm.environment.set(\"allJobPostsByUser\", allJobPostsByUser);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMTAxMTUsImV4cCI6MTU2NTAxMTAxNSwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.55sdpxQuTTgfp2M_8ui5mx0LJwJu9XaT9ul1s2iyzks"
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/jobs"
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"page\":0,\n\t\"pageSize\":1000\n\t\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/Job/GetAllJobs",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"Job",
+								"GetAllJobs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPostsByUserId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1959f0a1-7de9-4d82-9a6d-10a6a91db0d4",
+								"exec": [
+									"pm.test(\"GetPosts by id\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    ",
+									"    let array =[];",
+									"    ",
+									"    ",
+									"    ",
+									"    for(var i=0; i<jsonData.posts.length;i++){",
+									"        array.push(jsonData.posts[i].postId);",
+									"    }",
+									"    ",
+									"    pm.expect(compare(pm.environment.get(\"allJobPostsByUser\"),array)).to.be.true;",
+									"    ",
+									"    pm.environment.set(\"postIdLast\", jsonData.posts[0].postId);",
+									"   ",
+									"});",
+									"",
+									"function compare(array1,array2){",
+									"    // const found = array1.some(r=> array2.indexOf(r) >= 0);// This is to check ig any element of arr1 exists in array2 , not all ",
+									"    const found = array1.every(elem => array2.indexOf(elem) > -1);",
+									"    return found;",
+									"}",
+									"",
+									"",
+									"// function compare(arr1,arr2){",
+									"  ",
+									"//   if(!arr1  || !arr2) return",
+									"  ",
+									"//     let result;",
+									"  ",
+									"//       arr1.forEach((e1,i)=>arr2.forEach(e2=>{",
+									"    ",
+									"//          if(e1.length > 1 && e2.length){",
+									"//             result = compare(e1,e2);",
+									"//          }else if(e1 !== e2 ){",
+									"//             result = false",
+									"//          }else{",
+									"//             result = true",
+									"//          }",
+									"//     })",
+									"//   )",
+									"  ",
+									"//   return result",
+									"  ",
+									"",
+									"// }",
+									"",
+									"// function compareArrays(array1 , array2){",
+									"//     array1.sort();",
+									"//     array2.sort();",
+									"//     const finalArray=[];",
+									"    ",
+									"//     array1.foreach((e1)=>array2.foreach((e2)=>{",
+									"//         if(e1==e2){",
+									"//             finalArray.push(e1);",
+									"//         }",
+									"//     }));",
+									"//     return finalArray;",
+									"// }"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMTI2NjQsImV4cCI6MTU2NTAxMzU2NCwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.nacIgL7VYULJliexMbm9Mpod2Exwq3GyLhQpXIugzhc"
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/feed"
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\":\"{{userId}}\",\n\t\"page\": 0,\n    \"pageSize\": 1000000\n\t\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/post/GetPostsByUserId",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"post",
+								"GetPostsByUserId"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetInstruments",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwODg0MjgsImV4cCI6MTU2NTA4OTMyOCwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.R3sxyEUkDUIC3PPUV_BQYXQ4LJKjZpJMkWn2ckoTwlE",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/jobs/filter",
+								"disabled": true
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"isCategorized\":true}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/global/Global/GetInstruments",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"global",
+								"Global",
+								"GetInstruments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetFilteredJobPosts with position, genre,instr,location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d2e260ae-5b2b-47da-bb3d-6c6db879176f",
+								"exec": [
+									"// \"20\",\"16\",\"15\",\"14\",\"11\",\"10\",\"8\",\"7\",\"6\",\"5\",\"4\",\"3\",\"2\",\"1\",\"0\",\"9\"",
+									"",
+									"",
+									"",
+									"pm.test(\"Test- only one post should be returned\", function () {",
+									"    var jsonData = pm.response.json();",
+									"  ",
+									"    ",
+									"    ",
+									"    ///OVDE proveram da li svi objekti iz response-a imaju naslov koji sam zadao svim automation testovima",
+									"    ",
+									"    jsonData.jobPosts.forEach(element =>{",
+									"        console.log('Naslov je '+element.title+ ' a lokacija je ' + element.locationName);",
+									"        pm.expect(element.title).to.be.eql(pm.variables.get(\"title\"));",
+									"        ",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwODg0MjgsImV4cCI6MTU2NTA4OTMyOCwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.R3sxyEUkDUIC3PPUV_BQYXQ4LJKjZpJMkWn2ckoTwlE",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/jobs",
+								"disabled": true
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "\n\n{\n  \"page\": 0,\n  \"pageSize\": 50000000,\n  \"title\": \"{{title}}\",\n  \"genres\": [{{genre}}],\n  \"instruments\": [{{instruments}}],\n  \"isPayed\": true,\n  \"location\":\"{{city}}\",\n  \"radius\": 20\n\n}\n\n\n\n\n\n\n"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/Job/GetFilteredJobPosts",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"Job",
+								"GetFilteredJobPosts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetFilteredJobPosts with genre, instr",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d2e260ae-5b2b-47da-bb3d-6c6db879176f",
+								"exec": [
+									"",
+									"",
+									"",
+									"////OVDE JE MOZDA MALO SUMANUTO BILO STA TESTIRATI JER SSAM MNOGO INSTRUMENATA I GENRE_ova UBACIO PA SE DOSTA PODUDARA",
+									"//RAZMOTRITI WITH PITRA NENAD!",
+									"",
+									"",
+									"pm.test(\"Test- only one post should be returned\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    ",
+									"    let array = [];",
+									"    ",
+									"    ",
+									"    ",
+									"    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwODg0MjgsImV4cCI6MTU2NTA4OTMyOCwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.R3sxyEUkDUIC3PPUV_BQYXQ4LJKjZpJMkWn2ckoTwlE",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/jobs",
+								"disabled": true
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"page\": 0,\n  \"pageSize\": 50000000,\n  \"title\": \"\",\n  \"genres\": [{{genre}}],\n  \"instruments\": [{{instruments}}],\n  \"isPayed\": true,\n  \"location\":\"\",\n  \"radius\": 20\n\t\n}\n\n\n\n\n\n\n"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/Job/GetFilteredJobPosts",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"Job",
+								"GetFilteredJobPosts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetFilteredJobPosts with location",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d2e260ae-5b2b-47da-bb3d-6c6db879176f",
+								"exec": [
+									"// \"20\",\"16\",\"15\",\"14\",\"11\",\"10\",\"8\",\"7\",\"6\",\"5\",\"4\",\"3\",\"2\",\"1\",\"0\",\"9\"",
+									"",
+									"// 20,16,15,14,11,10,8,7,6,5,4,3,2,1,0,9",
+									"",
+									"",
+									"// \"1\",\"3\",\"27\",\"19\",\"10\",\"47\",\"39\",\"57\",\"79\",\"78\"",
+									"",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    ",
+									"    jsonData.jobPosts.forEach(element =>{",
+									"        console.log(element.locationName);",
+									"    })",
+									"    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwODg0MjgsImV4cCI6MTU2NTA4OTMyOCwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.R3sxyEUkDUIC3PPUV_BQYXQ4LJKjZpJMkWn2ckoTwlE",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/jobs",
+								"disabled": true
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"page\": 0,\n  \"pageSize\": 50000000,\n \"latitude\":{{lat}},\n \"longitude\":{{long}},\n  \"isPayed\": false,\n  \"location\":\"{{city}}\",\n  \"radius\": 20\n}\n\n\n\n\n\n\n"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/Job/GetFilteredJobPosts",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"Job",
+								"GetFilteredJobPosts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetFilteredJobPosts with latitude,longitude",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d2e260ae-5b2b-47da-bb3d-6c6db879176f",
+								"exec": [
+									"// \"20\",\"16\",\"15\",\"14\",\"11\",\"10\",\"8\",\"7\",\"6\",\"5\",\"4\",\"3\",\"2\",\"1\",\"0\",\"9\"",
+									"",
+									"// 20,16,15,14,11,10,8,7,6,5,4,3,2,1,0,9",
+									"",
+									"",
+									"// \"1\",\"3\",\"27\",\"19\",\"10\",\"47\",\"39\",\"57\",\"79\",\"78\"",
+									"",
+									"// 1,3,27,19,10,47,39,57,79,78"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwODg0MjgsImV4cCI6MTU2NTA4OTMyOCwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.R3sxyEUkDUIC3PPUV_BQYXQ4LJKjZpJMkWn2ckoTwlE",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/jobs",
+								"disabled": true
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"page\": 0,\n  \"pageSize\": 50000000,\n  \"title\": \"\",\n  \"genres\": [],\n  \"instruments\": [],\n  \"isPayed\": true,\n  \"location\":\"\",\n  \"radius\": 20\n\t\n}\n\n\n\n\n\n\n"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/Job/GetFilteredJobPosts",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"Job",
+								"GetFilteredJobPosts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetJobPost",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "a53e92e5-80cf-422f-88ce-b56bed84a02d",
+								"exec": [
+									"pm.test(\"Test last post matching data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.jobPost.accountData.email).to.eql(pm.variables.get(\"username\"));",
+									"    pm.expect(jsonData.jobPost.description).to.eql(\"Attention! This is automated test , don't be fooled!\");",
+									"    pm.expect(jsonData.jobPost.title).to.eql(pm.variables.get(\"title\"));",
+									"    pm.expect(jsonData.jobPost.locationName).to.eql(pm.variables.get(\"city\"));",
+									"    pm.expect(jsonData.jobPost.latitude).to.eql(pm.variables.get(\"lat\"));",
+									"    pm.expect(jsonData.jobPost.longitude).to.eql(pm.variables.get(\"long\"));",
+									"    pm.expect(jsonData.jobPost.isPayed).to.eql(true);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"disabled": true
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/jobs/145",
+								"disabled": true
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
+							},
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjYzMDgzNzcsImV4cCI6MTU2NjMwOTI3NywiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.1lLVykEfXQT4CxuRtYEmnIDsoKo9v_lptqicKg3dK7Y"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"postId\":{{postIdLast}}\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/Job/GetJobPost",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"Job",
+								"GetJobPost"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Posts",
+			"item": [
+				{
+					"name": "Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "458f3014-6f4e-430f-b5f2-8754c138c11e",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.token).not.to.eql(\"\");",
+									"    pm.environment.set(\"token\",jsonData.token);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "If-None-Match",
+								"value": "W/\"18f-i2QadhZYVMdT0auEqyIg2yZzzh4\""
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/login",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMDgxNjMsImV4cCI6MTU2NTAwOTA2MywiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.rhmuThVRqz6MWfci3i5PzQyrt0FQ9qQvsDukW-nqnjg",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/app/token",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"app",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "66b03bba-f985-4b16-8191-2e19ad209d09",
+								"exec": [
+									"",
+									"pm.test(\"Login\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.userToken).not.to.be.null;",
+									"    pm.environment.set(\"userToken\",jsonData.userToken);",
+									"     pm.expect(jsonData.userId).not.to.be.null;",
+									"    pm.environment.set(\"userId\",jsonData.userId);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMDgzNzUsImV4cCI6MTU2NTAwOTI3NSwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.OcojL53abtUd11jXsEmSt4i79luNd2fb2H-opzcFf34",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/login",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"{{username}}\",\n\t\"password\":\"{{password}}\"\n\t\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/account/Account/Login",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"account",
+								"Account",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPostsByUserId",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "815eefb4-629d-41fb-9644-75ed2219a1f3",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    ",
+									"    let array =[];",
+									"    ",
+									"    for(var i=0; i<jsonData.posts.length;i++){",
+									"        array.push(jsonData.posts[i].postId);",
+									"    }",
+									"    // array.sort(sortArray);",
+									"    ",
+									"    array.sort((a, b) => a - b);",
+									"    // console.log(array)",
+									"    // console.log(array[array.length -1])",
+									"    pm.environment.set(\"idOfLastInsertedPost\",array[array.length -1]);",
+									"});",
+									"",
+									"function sortArray(a,b){",
+									"    return a - b;",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMDgzNzUsImV4cCI6MTU2NTAwOTI3NSwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.OcojL53abtUd11jXsEmSt4i79luNd2fb2H-opzcFf34"
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/feed"
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"userId\":{{userId}},\n\t\"page\":0,\n\t\"pageSize\":1000000\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/post/GetPostsByUserId",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"post",
+								"GetPostsByUserId"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreatePost",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ae65216d-ed8b-4e7e-b7a1-6f2f5ef086a9",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    let now = pm.environment.get(\"idOfLastInsertedPost\");",
+									"    pm.expect(jsonData.postId).to.be.eql(now + 1);",
+									"    ",
+									"    pm.environment.set(\"idOfNewPost\", now+1);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUxMDA0ODYsImV4cCI6MTU2NTEwMTM4NiwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.SP71DOltWi_GDRCrsbpps0MNhy8fTf4zfwxP73f3vX8"
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data; boundary=----WebKitFormBoundaryQBebiA6u66fgWJ7A"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/feed/create"
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "userId",
+									"value": "{{userId}}",
+									"type": "text"
+								},
+								{
+									"key": "Text",
+									"value": "{{text}}",
+									"type": "text"
+								},
+								{
+									"key": "images",
+									"type": "file",
+									"src": "/C:/Users/dragan.lintner/Documents/Projects Visual Code Studio/rasperry_pi/pi_project/src/assets/automan.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/post/CreatePost",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"post",
+								"CreatePost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPost",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "967e5718-1530-481c-87bc-88977075ed5e",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.post.postId).to.be.eql(pm.environment.get(\"idOfNewPost\"));",
+									"    pm.expect(jsonData.post.accountData.email).to.be.eql(pm.environment.get(\"username\"));",
+									"    pm.expect(jsonData.post.description).to.be.eql(pm.variables.get(\"text\"));",
+									"    pm.expect(jsonData.post.mediaFiles).not.to.be.empty;",
+									"    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"postId\": {{idOfNewPost}}\r\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-post.azurewebsites.net/Post/GetPost",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-post",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"Post",
+								"GetPost"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PROFILE",
+			"item": [
+				{
+					"name": "Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "458f3014-6f4e-430f-b5f2-8754c138c11e",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.token).not.to.eql(\"\");",
+									"    pm.environment.set(\"token\",jsonData.token);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "If-None-Match",
+								"value": "W/\"18f-i2QadhZYVMdT0auEqyIg2yZzzh4\""
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/login",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMDgxNjMsImV4cCI6MTU2NTAwOTA2MywiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.rhmuThVRqz6MWfci3i5PzQyrt0FQ9qQvsDukW-nqnjg",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/app/token",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"app",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "66b03bba-f985-4b16-8191-2e19ad209d09",
+								"exec": [
+									"",
+									"pm.test(\"Login\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.userToken).not.to.be.null;",
+									"    pm.environment.set(\"userToken\",jsonData.userToken);",
+									"     pm.expect(jsonData.userId).not.to.be.null;",
+									"    pm.environment.set(\"userId\",jsonData.userId);",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMDgzNzUsImV4cCI6MTU2NTAwOTI3NSwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.OcojL53abtUd11jXsEmSt4i79luNd2fb2H-opzcFf34",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/login",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"{{username}}\",\n\t\"password\":\"{{password}}\"\n\t\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/account/Account/Login",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"account",
+								"Account",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "458f3014-6f4e-430f-b5f2-8754c138c11e",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.token).not.to.eql(\"\");",
+									"    pm.environment.set(\"token\",jsonData.token);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "If-None-Match",
+								"value": "W/\"18f-i2QadhZYVMdT0auEqyIg2yZzzh4\""
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/login",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMDgxNjMsImV4cCI6MTU2NTAwOTA2MywiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.rhmuThVRqz6MWfci3i5PzQyrt0FQ9qQvsDukW-nqnjg",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/app/token",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"app",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "66b03bba-f985-4b16-8191-2e19ad209d09",
+								"exec": [
+									"",
+									"pm.test(\"Login\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.userToken).not.to.be.null;",
+									"    pm.environment.set(\"userToken\",jsonData.userToken);",
+									"     pm.expect(jsonData.userId).not.to.be.null;",
+									"    pm.environment.set(\"userId\",jsonData.userId);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjUwMDgzNzUsImV4cCI6MTU2NTAwOTI3NSwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.OcojL53abtUd11jXsEmSt4i79luNd2fb2H-opzcFf34",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*",
+								"disabled": true
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/login",
+								"disabled": true
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\":\"{{username}}\",\n\t\"password\":\"{{password}}\"\n\t\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/account/Account/Login",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"account",
+								"Account",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllEvents",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c9763805-d981-474b-805e-2f5383e9e72b",
+								"exec": [
+									"var time = addHours(4)",
+									"pm.environment.set(\"currentTime\", time.toISOString().split(\".\")[0]);",
+									"",
+									"",
+									"var newTime=addDays(3);",
+									"pm.environment.set(\"futureTime\", newTime.toISOString().split(\".\")[0]);",
+									"",
+									"var onlyDate = addDays(0);",
+									"pm.environment.set(\"onlyDate\",onlyDate.toISOString().split(\"T\")[0] );",
+									"",
+									"",
+									"function addDays(days){",
+									"    var time = new Date();",
+									"    time.setDate(time.getDate() + days);",
+									"    return time;",
+									"}",
+									"",
+									"",
+									"function addHours(hours){",
+									"    var time = new Date();",
+									"    time.setHours(time.getHours() +hours);",
+									"    return time;",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"disabled": true
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/events"
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjYyMDUzNzAsImV4cCI6MTU2NjIwNjI3MCwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.l0NhCiCZA_6PzzMkfBFYpBtxfcVhHYRBZVF7Fb9E1ww",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"page\":0,\n\t\"pageSize\":5\n\t\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/Event/GetAllEvents",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"Event",
+								"GetAllEvents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateEventPost",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c039f459-2636-4870-a43b-a6d845e0d722",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.responseMessage).to.eql(\"OK\");",
+									"});",
+									"",
+									"",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"disabled": true
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data; boundary=----WebKitFormBoundaryVlqGOIS8f7UwAbNj"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/events/create"
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36",
+								"disabled": true
+							},
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjYyMDc0MjksImV4cCI6MTU2NjIwODMyOSwiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.v8XZNSLiNK55GQ3JO0KRMXdid7_zVivSNK3xOakaDxM",
+								"disabled": true
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "UserId",
+									"value": "{{userId}}",
+									"type": "text"
+								},
+								{
+									"key": "Title",
+									"value": "{{evenetTitile}}",
+									"type": "text"
+								},
+								{
+									"key": "Description",
+									"value": "{{eventDescription}}",
+									"type": "text"
+								},
+								{
+									"key": "Genres",
+									"value": "{{genre}}",
+									"type": "text"
+								},
+								{
+									"key": "EventType",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "EventStartTime",
+									"value": "{{currentTime}}",
+									"type": "text"
+								},
+								{
+									"key": "EventEndTime",
+									"value": "{{futureTime}}",
+									"type": "text"
+								},
+								{
+									"key": "LocationName",
+									"value": "{{city}}",
+									"type": "text"
+								},
+								{
+									"key": "Latitude",
+									"value": "{{lat}}",
+									"type": "text"
+								},
+								{
+									"key": "Longitude",
+									"value": "{{long}}",
+									"type": "text"
+								},
+								{
+									"key": "FILE",
+									"type": "file",
+									"src": "/C:/Users/dragan.lintner/Documents/Projects Visual Code Studio/rasperry_pi/pi_project/src/assets/test event.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/Event/CreateEventPost",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"Event",
+								"CreateEventPost"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetFilteredEventPosts by StartDate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fc4f2e38-e7a0-4be4-947a-cf3cc1fdcb64",
+								"exec": [
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    ",
+									"    const moment = require('moment');",
+									"    ",
+									"    jsonData.eventPosts.forEach(element =>{",
+									"       ",
+									"        pm.expect(new Date(Date.parse(element.eventEndTime))).to.be.above(new Date(Date.parse(pm.variables.get(\"onlyDate\"))));",
+									"        console.log('Event se zavrsava: ' +element.eventEndTime.split(\"T\")[0]+ ' a ovaj moj pocinje:  ' +pm.variables.get(\"onlyDate\"));",
+									"    });",
+									"    ",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"disabled": true
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/events"
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
+							},
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjYyMTAxMzcsImV4cCI6MTU2NjIxMTAzNywiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.Zyo4nTH81KYPjsvShzEnYzWDVgCt3kZBsGCJZg7jZjk"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"page\":0,\n\t\"pageSize\":10000000,\n\t\"from\":\"{{onlyDate}}\",\n\t\"radius\":null,\n\t\"genres\":[],\n\t\"locationName\":\"\",\n\t\"artistsSearchInput\":\"\",\n\t\"venuesSearchInput\":\"\",\n\t\"following\":false\n\t\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/Event/GetFilteredEventPosts",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"Event",
+								"GetFilteredEventPosts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetFilteredEventPosts with no data",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fc4f2e38-e7a0-4be4-947a-cf3cc1fdcb64",
+								"exec": [
+									"pm.test(\"Test Bad Request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.responseMessage).to.be.eql(\"Bad Request\")",
+									"    ",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"disabled": true
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/events"
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
+							},
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjYyMTAxMzcsImV4cCI6MTU2NjIxMTAzNywiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.Zyo4nTH81KYPjsvShzEnYzWDVgCt3kZBsGCJZg7jZjk"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"page\":0,\n\t\"pageSize\":5,\n\t\"from\":\"\",\n\t\"radius\":null,\n\t\"genres\":[],\n\t\"locationName\":\"\",\n\t\"artistsSearchInput\":\"\",\n\t\"venuesSearchInput\":\"\",\n\t\"following\":false\n\t\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/Event/GetFilteredEventPosts",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"Event",
+								"GetFilteredEventPosts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetFilteredEventPosts by Geolocation",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fc4f2e38-e7a0-4be4-947a-cf3cc1fdcb64",
+								"exec": [
+									"pm.test(\"Test Event for geolocation\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    ",
+									"  ///NE RADIII UVEK VRACA [] za lokaciju !!! ",
+									"  pm.expect(1).to.eql(2)",
+									"    ",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Sec-Fetch-Mode",
+								"value": "cors",
+								"disabled": true
+							},
+							{
+								"key": "Sec-Fetch-Site",
+								"value": "same-origin",
+								"disabled": true
+							},
+							{
+								"key": "Origin",
+								"value": "https://bandturf-dev-fe.azurewebsites.net",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US,en;q=0.9",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json, text/plain, */*"
+							},
+							{
+								"key": "Referer",
+								"value": "https://bandturf-dev-fe.azurewebsites.net/events"
+							},
+							{
+								"key": "UserToken",
+								"value": "{{userToken}}"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36"
+							},
+							{
+								"key": "Cookie",
+								"value": "ARRAffinity=c2d2b2fc516150e2fba56bc33f71e8c4b087b277205cdeb46ecd2df0372e36dc; authcard=eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJhcGkuZXhlY3V0b3IiLCJuYmYiOjE1NjYyMTAxMzcsImV4cCI6MTU2NjIxMTAzNywiaXNzIjoiYmFuZHR1cmYuY29tIiwiYXVkIjoiYXBpLmNsaWVudHMifQ.Zyo4nTH81KYPjsvShzEnYzWDVgCt3kZBsGCJZg7jZjk"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"page\":0,\n\t\"pageSize\":5,\n\t\"from\":\"{{onlyDate}}\",\n\t\"radius\":null,\n\t\"genres\":[],\n\t\"latitude\":{{lat}},\n\t\"longitude\":{{long}},\n\t\"locationName\":\"{{city}}\",\n\t\"artistsSearchInput\":\"\",\n\t\"venuesSearchInput\":\"\",\n\t\"following\":false\n\t\n}"
+						},
+						"url": {
+							"raw": "https://bandturf-dev-fe.azurewebsites.net/api/post/Event/GetFilteredEventPosts",
+							"protocol": "https",
+							"host": [
+								"bandturf-dev-fe",
+								"azurewebsites",
+								"net"
+							],
+							"path": [
+								"api",
+								"post",
+								"Event",
+								"GetFilteredEventPosts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test",
+			"item": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "24914777-c1f9-403a-b83c-0e4ece48e7c4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "c452ef72-2fdb-4640-9e6b-b084cbf94beb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "a0ef8c1a-5e5d-4c5c-b176-d6ee79daee05",
+			"key": "username",
+			"value": "dragan.lintner6@seavus.com",
+			"type": "string"
+		},
+		{
+			"id": "d947ff45-637e-4691-84c1-e470b8610210",
+			"key": "password",
+			"value": "test12345",
+			"type": "string"
+		},
+		{
+			"id": "c6f9dba0-0f2a-4f43-95fa-e17243135e1c",
+			"key": "title",
+			"value": "Zurka kod Bokija",
+			"type": "string"
+		},
+		{
+			"id": "bbf9ba7b-fe18-451c-ad8c-b13de6c643e4",
+			"key": "genre",
+			"value": "20,16,15,14,11,10,8,7,6,5,4,3,2,1,0,9",
+			"type": "string"
+		},
+		{
+			"id": "c63b4e98-9a29-4b77-904a-1dcb29f4bd55",
+			"key": "instruments",
+			"value": "1,3,27,19,10,47,39,57,79,78",
+			"type": "string"
+		},
+		{
+			"id": "98f5b301-f3af-464b-b521-7142b402175e",
+			"key": "location",
+			"value": "Zemun",
+			"type": "string"
+		},
+		{
+			"id": "148059f1-9834-4aaf-a796-0c1cf1bcbe6f",
+			"key": "latitude",
+			"value": "44.85308879999999",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"id": "f2653669-c64c-46b6-a4e2-a579286ffb34",
+			"key": "longitude",
+			"value": "20.36865080000007",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"id": "ec664cbd-5e88-4462-b088-36a1656536fe",
+			"key": "text",
+			"value": "Automation Test ...I am armed ...with knowledge ",
+			"type": "string"
+		},
+		{
+			"id": "fc693f6c-b46f-4d27-b2b8-e0ad16573ed6",
+			"key": "description",
+			"value": "We need drummer with minimum 56 years of experience and is good with SQL server . Looks very nice, pretty guy and has good communication skills. LIke hiking and walking in wood , knows how to fix car and have driving licence category C, C1 , A, B and D. Speaks minimum 10 foreign languages ( including python and Vue.js)",
+			"type": "string"
+		},
+		{
+			"id": "9598ad1d-cc86-44a3-bfc0-34eea72644cd",
+			"key": "evenetTitile",
+			"value": "Automation Test Conference",
+			"type": "string"
+		},
+		{
+			"id": "4906039c-ea0e-455b-8e5e-5668c4bca25b",
+			"key": "eventDescription",
+			"value": "This is Automation test Event Description",
+			"type": "string"
+		}
+	]
+}
